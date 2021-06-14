@@ -230,6 +230,9 @@
                 >
                   Draw <small>(Beta)</small>
                 </button>
+                <button class="generate-image-button" onclick='save()'>
+                    Save
+                </button>
               </div>
             </div>
 
@@ -723,7 +726,10 @@
           }
         });
       });
-      setInterval(setCookie("text",$("#note").innerText,60),1000*60*10)
+      setInterval(save(),1000*60*5)
+      function save(){
+        setCookie("text",$("#note").text(),60)
+      }
       function setCookie(cname,cvalue,exdays){
             var d = new Date();
             d.setTime(d.getTime()+(exdays*24*60*60*1000));
